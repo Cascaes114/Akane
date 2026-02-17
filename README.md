@@ -21,13 +21,13 @@ Você pode customizar a assistente via codigo:
 
 Duração da pergunta.
 ```
-duration = 5 <-- _Altere o tempo de gravação da pergunta_
+duration = 5 #<-- Altere o tempo de gravação da pergunta
 ```
 Voce pode alterar a voz dela.
 ```
 audio = client_eleven.text_to_speech.convert(
     text=chat_completion.choices[0].message.content,
-    voice_id="C1HmuBQF5FgKhKffeOsL", <-- _Aqui você altera o modelo de voz ElevenLabs_
+    voice_id="C1HmuBQF5FgKhKffeOsL", #<-- Aqui você altera o modelo de voz ElevenLabs
     model_id="eleven_multilingual_v2",
     output_format="pcm_24000",
 )
@@ -39,7 +39,7 @@ def gerar_resposta(texto):
         messages=[
             {
                 "role": "system", 
-                "content": " _Personalidade da assistente_ "
+                "content": " Personalidade da assistente "
             },
             
             {

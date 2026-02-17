@@ -13,8 +13,8 @@ from random import choice
 def configurar_chaves():
     if not os.path.exists(".env"):
         print("--- Configuração Inicial da Akane ---")
-        groq_key = input("Cole sua API Key da Groq: ")
-        eleven_key = input("Cole sua API Key da ElevenLabs: ")
+        groq_key = input("Cole sua API Key Groq: ")
+        eleven_key = input("Cole sua API Key ElevenLabs: ")
         
         with open(".env", "w") as f:
             f.write(f"GROQ_API_KEY={groq_key}\n")
@@ -76,7 +76,7 @@ for phrase in speech:
     print("\n[WAKE WORD DETECTADA!]")
     escolhido = choice(saudacoes)
     play(escolhido)
-    time.sleep(1)
+    time.sleep(0.8)
     print("Gravando pergunta (5s)...")
     duration = 5
     audio_data = sd.rec(int(duration * 16000), samplerate=16000, channels=1, dtype='int16')

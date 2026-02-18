@@ -1,3 +1,4 @@
+import sys
 import os
 import time
 from faster_whisper import WhisperModel
@@ -9,6 +10,13 @@ from playsound3 import playsound as play
 from pocketsphinx import LiveSpeech
 from dotenv import load_dotenv
 from random import choice
+
+
+
+def resource_path(relative_path):
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
 
 def configurar_chaves():
     if not os.path.exists(".env"):
@@ -23,7 +31,12 @@ def configurar_chaves():
 
 configurar_chaves()
 
-saudacoes = ["o que foi.mp3", "estou ouvindo.mp3", "pode falar.mp3"]
+resource_path("dicionario.dict")
+saudacoes = [
+    resource_path("o que foi.mp3"),
+    resource_path("estou ouvindo.mp3"),
+    resource_path("pode falar.mp3")
+]
 
 load_dotenv()
 VOICE_ID = os.getenv("VOICE_ID", "hpp4J3VqNfWAUOO0d1Us")
@@ -74,8 +87,7 @@ speech = LiveSpeech(
 
 for phrase in speech:
     print("\n[WAKE WORD DETECTADA!]")
-    escolhido = choice(saudacoes)
-    play(escolhido)
+    play(choice(saudacoes))
     print("Gravando pergunta (5s)...")
     duration = 5
     audio_data = sd.rec(int(duration * 16000), samplerate=16000, channels=1, dtype='int16')

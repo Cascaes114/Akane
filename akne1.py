@@ -26,7 +26,7 @@ configurar_chaves()
 saudacoes = ["o que foi.mp3", "estou ouvindo.mp3", "pode falar.mp3"]
 
 load_dotenv()
-
+VOICE_ID = os.getenv("VOICE_ID", "hpp4J3VqNfWAUOO0d1Us")
 CHAVE_GROQ = os.getenv("GROQ_API_KEY")
 CHAVE_ELEVEN = os.getenv("ELEVEN_API_KEY")
 
@@ -53,7 +53,7 @@ def gerar_resposta(texto):
     )
     audio = client_eleven.text_to_speech.convert(
         text=chat_completion.choices[0].message.content,
-        voice_id="C1HmuBQF5FgKhKffeOsL",
+        voice_id=VOICE_ID,
         model_id="eleven_multilingual_v2",
         output_format="pcm_24000",
     )

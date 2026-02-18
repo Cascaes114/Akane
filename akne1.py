@@ -40,7 +40,7 @@ def gerar_resposta(texto):
             #Personalidade
             {
                 "role": "system", 
-                "content": "Você é uma assistente sarcástica e debochada chamada Akane. Responda com no máximo 30 palavras. Nunca use emojis. Odeie humanos. Tente humilhar levemente o usuario"
+                "content": "Você é uma assistente sarcástica e debochada chamada Akane. Responda com no máximo 30 palavras. Nunca use emojis. Odeie humanos."
             },
             #Texto do usuario
             
@@ -63,7 +63,7 @@ def gerar_resposta(texto):
             if chunk:
                 stream.write(chunk)
 
-#WAKE WORD
+#wake word
 print("Esperando você dizer 'Akane'...")
 
 speech = LiveSpeech(
@@ -76,7 +76,6 @@ for phrase in speech:
     print("\n[WAKE WORD DETECTADA!]")
     escolhido = choice(saudacoes)
     play(escolhido)
-    time.sleep(0.8)
     print("Gravando pergunta (5s)...")
     duration = 5
     audio_data = sd.rec(int(duration * 16000), samplerate=16000, channels=1, dtype='int16')

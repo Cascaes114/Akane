@@ -1,6 +1,6 @@
 .env
 __pycache__/
 *.wav
-.spec
+*.spec
 /dist
 /build

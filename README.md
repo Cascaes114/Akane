@@ -25,8 +25,8 @@ Duração da pergunta.
 ```
 duration = 5 #<-- Altere o tempo de gravação da pergunta
 ```
-Voce pode alterar a voz da assistente no campo "voice_id".
-*IDs públicos recomendados:
+Voce pode alterar a voz da assistente no campo "voice_id".  
+* IDs públicos recomendados:
     - Bella: hpp4J3VqNfWAUOO0d1Us
     - Laura: FGY2WhTYpPnrIDTdsKH5
     - Lily: pFZP5JQG7iQjIQuC4Bku
